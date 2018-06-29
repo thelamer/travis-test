@@ -1,6 +1,7 @@
 sudo: true
-dist: bionic
 
+services:
+  - docker
 
 jobs:
   include:
