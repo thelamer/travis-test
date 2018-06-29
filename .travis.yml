@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker --version
+  - docker manifest
+  - mkdir -p ~/.docker/ && echo '{"experimental": "enabled"}' > ~/.docker/config.json
+  - docker manifest
