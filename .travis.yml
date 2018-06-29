@@ -1,10 +1,10 @@
-sudo: required
-services:
-  - docker
+sudo: true
+dist: bionic
 
-script:
-  - docker --version
-  - docker manifest
-  - mkdir -p ~/.docker/
-  - echo '{"experimental": "enabled"}' > ~/.docker/config.json
-  - docker manifest
+
+jobs:
+  include:
+    - stage: Check
+      script:
+        - docker --version
+        - docker manifest
