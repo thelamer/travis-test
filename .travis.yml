@@ -1,11 +1,17 @@
 sudo: true
 
+language: bash
+
 services:
   - docker
+
+env:
+  - DEBIAN_FRONTEND=noninteractive
 
 jobs:
   include:
     - stage: Check
       script:
+        - ./pre_install
         - docker --version
         - docker manifest
