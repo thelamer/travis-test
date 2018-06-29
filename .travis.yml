@@ -12,7 +12,8 @@ jobs:
   include:
     - stage: Check
       before_install:
-        - ./pre_install
+        - pwd
+        - /bin/bash pre_install
       script:
         - docker --version
         - docker manifest
