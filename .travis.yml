@@ -11,7 +11,8 @@ env:
 jobs:
   include:
     - stage: Check
+      before_install:
+        - ./pre_install
       script:
-        - ./thelamer/travis-test/pre_install
         - docker --version
         - docker manifest
