@@ -12,14 +12,14 @@ jobs:
   include:
     - stage: BuildMaster
       if: (branch = master) AND (NOT (type IN (pull_request))) AND (NOT (tag IS blank))
-      pre_install:
+      before_install:
         - /bin/bash pre_install
       script:
         - docker --version
         - docker manifest
     - stage: BuildMasterdev
       if: (branch = master) AND (NOT (type IN (pull_request))) AND (tag IS blank)
-      pre_install:
+      before_install:
         - /bin/bash pre_install
       script:
         - docker --version
