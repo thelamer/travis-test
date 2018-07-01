@@ -10,10 +10,11 @@ env:
 
 jobs:
   include:
-    - stage: Check
-      before_install:
-        - pwd
+    - stage: SetupHost
+      script:
         - /bin/bash pre_install
+    - stage: BuildMaster-dev
+      if: (branch = master) AND (NOT (type IN (push, pull_request))) AND (tag IS blank)
       script:
         - docker --version
         - docker manifest
